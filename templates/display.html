@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+</head>
+<body>
+    
+    <form action="{% url 'vote' %}" method="post">
+        {% csrf_token %}
+
+        {% for one in all %}
+            <p>{{ one }}  <button type="submit" value="vote" name="p{{ one.id }}">Vote</button></p>
+        {% endfor %}
+    </form>
+
+</body>
+</html>
